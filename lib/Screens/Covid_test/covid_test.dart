@@ -7,7 +7,7 @@ class CovidTest extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      child: Text("Yet to code"),
+      child: const Text("Yet to code"),
     );
   }
 }
