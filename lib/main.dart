@@ -21,9 +21,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Covid-19 Marine',
       theme: ThemeData(
-        primaryColor: appPrimaryColor,
+        primaryColor: appPrimaryLightColor,
         scaffoldBackgroundColor: Colors.white,
-        fontFamily: 'Raleway'
+        fontFamily: 'Poppins'
       ),
       home: const WelcomeScreen(),
     );

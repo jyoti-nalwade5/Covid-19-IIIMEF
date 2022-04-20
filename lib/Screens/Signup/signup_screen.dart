@@ -6,17 +6,28 @@ import 'package:flutter_application_1/components/account_check.dart';
 import 'package:flutter_application_1/components/background.dart';
 import 'package:flutter_application_1/components/radio_list.dart';
 import 'package:flutter_application_1/components/rounded_button.dart';
-import 'package:flutter_application_1/components/rounded_input_field.dart';
+import 'package:flutter_application_1/components/input_field.dart';
 import 'package:flutter_application_1/components/rounded_password_field.dart';
 
 
-class SignUpScreen extends StatelessWidget {
-  SignUpScreen({Key key}) : super(key: key);
-  
-  
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({Key key}) : super(key: key);
+
+  @override
+  State<SignUpScreen> createState() => SignInScreenState();
+}
+
+class SignInScreenState extends State<SignUpScreen>{
+
+  TextEditingController firstNameController = TextEditingController();
+  TextEditingController lastNameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+ 
+
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+   Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Background(
       child: Padding(
@@ -33,18 +44,18 @@ class SignUpScreen extends StatelessWidget {
                 ),
               ),
 
-              RoundedInputField(
-                hintText: "First Name",
-                onChanged: (value) {},
-              ),
-              RoundedInputField(
-                hintText: "Last Name",
-                onChanged: (value) {},
-              ),
-              RoundedInputField(
-                hintText: "Your Email",
-                onChanged: (value) {},
-              ),
+              // RoundedInputField(
+              //   hintText: "First Name",
+              //   onChanged: (value) {},
+              // ),
+              // RoundedInputField(
+              //   hintText: "Last Name",
+              //   onChanged: (value) {},
+              // ),
+              // RoundedInputField(
+              //   hintText: "Your Email",
+              //   onChanged: (value) {},
+              // ),
               RoundedPasswordField(
                 onChanged: (value) {},
               ),
@@ -92,8 +103,11 @@ class SignUpScreen extends StatelessWidget {
     ),
     );
   }
-
-
-  
 }
+
+
+   
+
+
+
 

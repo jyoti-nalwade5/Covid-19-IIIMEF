@@ -13,7 +13,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         drawer: NavigationDrawer(),
-        // endDrawer: NavigationDrawerWidget(),
+        endDrawer: NavigationDrawer(),
         body: Builder(
           builder: (context) => Container(
             alignment: Alignment.center,
@@ -22,15 +22,9 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Colors.blue,
               child: Text("Click"),
               onPressed: (){Scaffold.of(context).openDrawer();},
-            //   icon: Icons.open_in_new,
-            //   text: 'Open Drawer',
-            //   onClicked: () {
-            //     Scaffold.of(context).openDrawer();
-                
-            //   },
-            // ),
           ),
         ),
-      ));
+      )
+      );
   }
 }

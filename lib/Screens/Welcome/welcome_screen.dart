@@ -20,21 +20,22 @@ class WelcomeScreen extends StatelessWidget {
             SizedBox(height: size.height * 0.06),
             SvgPicture.asset(
               "asset/images/splash_screen.svg",
-              height: size.height * 0.20,
-              width: size.width * 0.20,
+              width: size.width * 0.04, 
+              height: size.height * 0.22,             
             ),
-            SizedBox(height: size.height * 0.06),
+            SizedBox(height: size.height * 0.04),
             const Text(
               "Lets get tested for Covid-19",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
-            SizedBox(height: size.height * 0.04,width: size.width*0.4,), //child: DecoratedBox(decoration: BoxDecoration(border:Border.all(), color: Colors.black))
+            SizedBox(height: size.height * 0.06), //child: DecoratedBox(decoration: BoxDecoration(border:Border.all(), color: Colors.black))
             SizedBox(
               height: size.height * 0.2,
               width: size.width * 0.6,
               child: const Text(
                 "Help protect yourself and the people around you by getting tested through our app",
-                style: TextStyle( fontSize: 20),
+                textAlign: TextAlign.center,
+                style: TextStyle( fontSize: 18),
               ),
             ),
             RoundedButton(
