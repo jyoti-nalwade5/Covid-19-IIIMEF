@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Screens/Home/home_screen.dart';
 import 'package:flutter_application_1/Screens/Login/login_screen.dart';
-import 'package:flutter_application_1/Screens/Signup/components/dependent_form.dart';
 import 'package:flutter_application_1/components/account_check.dart';
 import 'package:flutter_application_1/components/background.dart';
-import 'package:flutter_application_1/components/radio_list.dart';
-import 'package:flutter_application_1/components/rounded_button.dart';
 import 'package:flutter_application_1/components/input_field.dart';
-import 'package:flutter_application_1/components/rounded_password_field.dart';
+import 'package:flutter_application_1/components/rounded_button.dart';
 
 
 class SignUpScreen extends StatefulWidget {
@@ -30,43 +27,41 @@ class SignInScreenState extends State<SignUpScreen>{
    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Background(
-      child: Padding(
-        padding: const EdgeInsets.only(top: 50,bottom: 50),
-        child: SingleChildScrollView( 
+      child: SingleChildScrollView( 
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(size.width *0.06,size.height *0.06, size.width *0.06, 10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text(
-                  "SIGN UP",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
+              const Text(
+                "SIGN UP",
+                style: TextStyle(fontWeight: FontWeight.bold),
               ),
-
-              // RoundedInputField(
-              //   hintText: "First Name",
-              //   onChanged: (value) {},
+              SizedBox(height: size.height * 0.04),
+              roundedInputField(
+                "Enter your FirstName", Icons.person_outline, false,firstNameController
+              ),
+              const SizedBox(height: 20),
+              roundedInputField(
+                "Enter your lastName", Icons.person_outline, false,lastNameController
+              ),
+              const SizedBox(height: 20),
+              roundedInputField(
+                "Enter your email", Icons.person_outline, false,emailController
+              ),
+              const SizedBox(height: 20),
+              roundedInputField(
+                "Enter your password", Icons.person_outline, true,passwordController
+              ),
+              const SizedBox(height: 20),
+              // RadioList(
+              //   onValueSelected: (value)  {
+              //      // call dependent form
+              //   }
               // ),
-              // RoundedInputField(
-              //   hintText: "Last Name",
-              //   onChanged: (value) {},
+              // Container(
+              //   child: DependentForm(),
               // ),
-              // RoundedInputField(
-              //   hintText: "Your Email",
-              //   onChanged: (value) {},
-              // ),
-              RoundedPasswordField(
-                onChanged: (value) {},
-              ),
-              RadioList(
-                onValueSelected: (value)  {
-                   // call dependent form
-                }
-              ),
-              Container(
-                child: DependentForm(),
-              ),
               SizedBox(height: size.height * 0.03),
               RoundedButton(
                 text: "SIGN UP",
