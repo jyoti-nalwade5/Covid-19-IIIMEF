@@ -12,19 +12,32 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: NavigationDrawer(),
+        drawer: Container(
+                width:260,
+                child: NavigationDrawer()),
         endDrawer: NavigationDrawer(),
-        body: Builder(
-          builder: (context) => Container(
+        body: Container(
             alignment: Alignment.center,
             padding: EdgeInsets.symmetric(horizontal: 32),
             child: MaterialButton(
               color: Colors.blue,
-              child: Text("Click"),
-              onPressed: (){Scaffold.of(context).openDrawer();},
+              child: Text("Home Screen"),
+              onPressed: (){//Scaffold.of(context).openDrawer();
+              },
           ),
-        ),
       )
-      );
+    );
   }
 }
+
+// Widget Builder(
+//           builder: (context) => Container(
+//             alignment: Alignment.center,
+//             padding: EdgeInsets.symmetric(horizontal: 32),
+//             child: MaterialButton(
+//               color: Colors.blue,
+//               child: Text("Click"),
+//               onPressed: (){Scaffold.of(context).openDrawer();},
+//           ),
+//         ),
+//       )

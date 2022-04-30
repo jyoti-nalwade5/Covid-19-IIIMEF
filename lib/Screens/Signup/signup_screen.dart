@@ -66,15 +66,15 @@ class SignInScreenState extends State<SignUpScreen>{
               RoundedButton(
                 text: "SIGN UP",
                 press: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return const HomeScreen();
-                      },
-                    ),
-                  );
-
+                  // FirebaseAuth.instance
+                  //     .createUserWithEmailAndPassword(
+                  //         email: emailController.text,
+                  //         password: passwordController.text)
+                  //     .then((value) {
+                  //   //print("Created New Account");
+                  //   Navigator.push(context,
+                  //       MaterialPageRoute(builder: (context) => const HomeScreen()));
+                  // });
                 },
               ),
               AccountCheck(

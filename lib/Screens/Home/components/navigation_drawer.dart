@@ -1,14 +1,16 @@
+
+
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Screens/Covid_test/covid_test.dart';
-import 'package:flutter_application_1/Screens/Login/login_screen.dart';
+import 'package:flutter_application_1/Screens/covid_test.dart';
 import 'package:flutter_application_1/constants.dart';
 
 class NavigationDrawer extends StatelessWidget {
   const NavigationDrawer({Key key}) : super(key: key);
 
-  final padding = const EdgeInsets.symmetric(horizontal: 20);
+  final padding = const EdgeInsets.symmetric(horizontal: 10);
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     const name = 'Sarah Abs';
     const email = 'sarah@abs.com';
     const urlImage =
@@ -20,17 +22,11 @@ class NavigationDrawer extends StatelessWidget {
         child: ListView(
           children: <Widget>[
             buildHeader(
-              urlImage: urlImage,
-              name: name,
-              email: email,
-              onClicked: () {}
-              //Navigator.of(context).push(MaterialPageRoute(
-              //   builder: (context) => UserPage(
-              //     name: 'Sarah Abs',
-              //     urlImage: urlImage,
-              //   ),
-              // )),
-            ),
+                urlImage: urlImage,
+                name: name,
+                email: email,
+                height: size.height*0.3
+              ),
             Container(
               padding: padding,
               child: Column(
@@ -38,50 +34,45 @@ class NavigationDrawer extends StatelessWidget {
                   const SizedBox(height: 12),
                   //buildSearchField(),
                   const SizedBox(height: 24),
+                  divider,
                   buildMenuItem(
                     text: 'Home',
-                    icon: Icons.people,
+                    icon: Icons.home,
                     onClicked: () => selectedItem(context, 0),
-                  ),
-                  const SizedBox(height: 16),
+                  ),                  
+                  divider,
                   buildMenuItem(
                     text: 'Covid-19',
-                    icon: Icons.edit_attributes_sharp,
+                    icon: Icons.calendar_today,
                     onClicked: () => selectedItem(context, 1),
-                  ),
-                  const SizedBox(height: 16),
+                  ),                  
+                  divider,
                   buildMenuItem(
                     text: 'TestResult',
-                    icon: Icons.workspaces_outline,
+                    icon: Icons.note_alt_outlined,
                     onClicked: () => selectedItem(context, 2),
-                  ),
-                  const SizedBox(height: 16),
-                  // buildMenuItem(
-                  //   text: 'Updates',
-                  //   icon: Icons.update,
-                  //   onClicked: () => selectedItem(context, 3),
-                  // ),
-                  const SizedBox(height: 24),
-                  const Divider(color: Colors.white70),
-                  const SizedBox(height: 24),
+                  ),                  
+                  divider,
                   buildMenuItem(
                     text: 'Settings',
                     icon: Icons.settings_applications,
                     onClicked: () => selectedItem(context, 4),
-                  ),
-                  const SizedBox(height: 16),
+                  ),                  
+                  divider,
                   buildMenuItem(
                     text: 'Logout',
-                    icon: Icons.power_off_outlined,
-                    onClicked: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return const LoginScreen();
-                      },
-                    ),
-                  )
-                  )
+                    icon: Icons.logout,
+                    onClicked: () => selectedItem(context, 5),
+                  //   Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) {
+                  //       return const LoginScreen();
+                  //     },
+                  //   ),
+                  // )
+                  ),
+                  divider,
                 ],
               ),
             ),
@@ -95,43 +86,32 @@ class NavigationDrawer extends StatelessWidget {
      String urlImage,
      String name,
      String email,
-     VoidCallback onClicked,
+     double height
   }) =>
       InkWell(
-        onTap: onClicked,
         child: Container(
-          padding: padding.add(const EdgeInsets.symmetric(vertical: 40)),
-          child: Row(
+          padding: padding,
+          height: height,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CircleAvatar(radius: 30, backgroundImage: NetworkImage(urlImage)),
-              const SizedBox(width: 20),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
                   Text(
                     name,
-                    style: const TextStyle(fontSize: 20, color: appPrimaryColor),
+                    style: const TextStyle(fontSize: 20, color: Colors.black),
                   ),
-                  const SizedBox(height: 4),
                   Text(
                     email,
-                    style: const TextStyle(fontSize: 14, color: appPrimaryColor),
-                  ),
-                ],
-              ),
-              const Spacer(),
-              // CircleAvatar(
-              //   radius: 24,
-              //   backgroundColor: Color.fromRGBO(30, 60, 168, 1),
-              //   child: Icon(Icons.add_comment_outlined, color: Colors.white),
-              // )
+                    style: const TextStyle(fontSize: 14, color: Colors.grey),
+                  ),  
             ],
           ),
         ),
       );
 
   Widget buildSearchField() {
-    final color = Colors.white;
+    final color = Colors.black;
 
     return TextField(
       style: TextStyle(color: color),
@@ -160,13 +140,13 @@ class NavigationDrawer extends StatelessWidget {
     VoidCallback onClicked,
   }) {
     const color = Colors.black;
-    const hoverColor = appPrimaryColor;
+    const hoverClr = appPrimaryLightColor;
 
     return ListTile(
       leading: Icon(icon, color: Colors.blueGrey),
       title: Text(text, style: const TextStyle(color: color,fontWeight: FontWeight.bold)),
-      trailing: const Icon(Icons.arrow_forward_ios, color: hoverColor,size: 18 ,),
-      hoverColor: hoverColor,
+      trailing: const Icon(Icons.arrow_forward_ios, color: hoverClr,size: 18 ,),
+      hoverColor: hoverClr,
       onTap: onClicked,
     );
   }
@@ -185,6 +165,11 @@ class NavigationDrawer extends StatelessWidget {
           builder: (context) => const CovidTest(),
         ));
         break;
+      // case 5:
+      //   FirebaseAuth.instance.signOut().then((value) {
+      //         Navigator.push(context,
+      //             MaterialPageRoute(builder: (context) => const LoginScreen()));
+      //       });
     }
   }
 }

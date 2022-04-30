@@ -7,7 +7,7 @@ void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
  ));
-//SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive); //TODO: gives Unhandled Exception: Null check operator used on a null value
+
 
   runApp(const MyApp());}
 

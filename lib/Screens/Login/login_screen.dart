@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Screens/Home/home_screen.dart';
 import 'package:flutter_application_1/components/background.dart';
 import 'package:flutter_application_1/Screens/Signup/signup_screen.dart';
 import 'package:flutter_application_1/components/account_check.dart';
@@ -55,7 +56,19 @@ class _LoginScreenState extends State<LoginScreen> {
               RoundedButton(
                 text: "LOGIN",
                 textColor: Colors.white,
-                press: () {},
+                press: () {
+                  // FirebaseAuth.instance
+                  //     .signInWithEmailAndPassword(
+                  //         email: emailController.text,
+                  //         password: passwordController.text)
+                  //     .then((value) {
+                  //   Navigator.push(context,
+                  //       MaterialPageRoute(builder: (context) => const HomeScreen()));
+                  // });
+
+                  Navigator.push(context,
+                         MaterialPageRoute(builder: (context) => const HomeScreen()));
+                },
               ),
               SizedBox(height: size.height * 0.03),
               AccountCheck(
